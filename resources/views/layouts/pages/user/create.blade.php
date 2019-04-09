@@ -31,43 +31,9 @@
                                     </option>
                                     <option value="client" {{ old('role') == 'client' ? 'selected' : '' }}>
                                         {{ __('messages.client') }}
-                                    </option> 
+                                    </option>
                                 </select>
                             </div>
-
-                            <div class="form-group col-xs-12 hidden">
-
-                                <label><strong>{{ __('messages.client') }}:</strong></label>
-
-                                <select class="form-control" name="client_id">
-                                    <option value="">{{ __('messages.select_client') }}</option>
-                                    @foreach($clients as $client)
-                                        <option value="{{$client['id']}}" {{ old('client_id') == $client['id'] ? 'selected' : '' }}>{{$client['title']}}</option>
-                                    @endforeach
-                                </select>
-
-                            </div>
-
-                            @hasanyrole('root')
-
-                                <div class="form-group col-xs-12">
-
-                                    <label><strong>{{ __('messages.company') }}:</strong></label>
-
-                                    <select class="form-control" name="company_id" required>
-                                        <option value="">{{ __('messages.select_company') }}</option>
-                                        @foreach($companies as $company)
-                                            <option value="{{$company['id']}}" {{ old('company_id') == $company['id'] ? 'selected' : '' }}>{{$company['title']}}</option>
-                                        @endforeach
-                                    </select>
-
-                                </div>
-
-                            @else
-
-                                <input type="hidden" name="company_id" value="{{ auth()->user()->company_id }}">
-
-                            @endhasallroles
 
                             <div class="form-group col-xs-12">
                                 <label>{{ __('messages.name') }}:</label>

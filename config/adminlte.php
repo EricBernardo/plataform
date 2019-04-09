@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'RocketZ Web',
+    'title' => 'Plataform - One For All',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>RocketZ</b> Web',
+    'logo' => '<b>Plataform</b> One For All',
 
-    'logo_mini' => '<b>R</b>W',
+    'logo_mini' => '<b>OFA</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -109,30 +109,6 @@ return [
 
     'menu' => [
         'MAIN NAVIGATION',
-        [
-            'text' => 'Dashboard',
-            'url'  => '/dashboard',
-            'icon' => 'signal',
-
-        ],
-        [
-            'text' => 'Clientes',
-            'url'  => 'client',
-            'icon' => 'building',
-
-        ],
-        [
-            'text' => 'Produtos',
-            'url'  => 'product',
-            'icon' => 'bars',
-
-        ],
-        [
-            'text' => 'Pedidos',
-            'url'  => 'order',
-            'icon' => 'shopping-cart',
-
-        ],
         [
             'header' => 'ACCOUNT SETTINGS',
             'can'    => 'root|administrator'

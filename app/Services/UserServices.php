@@ -19,10 +19,6 @@ class UserServices extends DefaultServices
 
         $data['password'] = bcrypt($data['password']);
 
-        if (!$request->user()->hasAnyRole('root')) {
-            $data['client_id'] = $request->user()->client_id;
-        }
-
         $result = $this->entity::create($data);
 
         $result->assignRole($data['role']);
@@ -50,10 +46,6 @@ class UserServices extends DefaultServices
             $data['password'] = bcrypt($data['password']);
         } else {
             unset($data['password']);
-        }
-
-        if (!$request->user()->hasAnyRole('root')) {
-            $data['client_id'] = $request->user()->client_id;
         }
 
         $result->update($data);

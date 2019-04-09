@@ -40,40 +40,6 @@
 
                             </div>
 
-                            <div class="form-group col-xs-12 <?php echo !$result->hasRole('client') ? 'hidden' : ''; ?>">
-
-                                <label><strong>{{ __('messages.client') }}:</strong></label>
-
-                                <select class="form-control" name="client_id">
-                                    <option value="">{{ __('messages.select_client') }}</option>
-                                    @foreach($clients as $client)
-                                        <option value="{{$client['id']}}" {{ $result['client_id'] == $client['id'] ? 'selected' : '' }}>{{$client['title']}}</option>
-                                    @endforeach
-                                </select>
-
-                            </div>
-
-                            @hasanyrole('root')
-
-                                <div class="form-group col-xs-12">
-
-                                    <label><strong>{{ __('messages.company') }}:</strong></label>
-
-                                    <select class="form-control" name="company_id" required>
-                                        <option value="">{{ __('messages.select_company') }}</option>
-                                        @foreach($companies as $company)
-                                            <option value="{{$company['id']}}" {{ $result['company_id'] == $company['id'] ? 'selected' : '' }}>{{$company['title']}}</option>
-                                        @endforeach
-                                    </select>
-
-                                </div>
-
-                            @else
-
-                                <input type="hidden" name="company_id" value="{{ $result['company_id'] }}">
-
-                            @endhasallroles
-
                             <div class="form-group col-xs-12">
                                 <label>{{ __('messages.name') }}:</label>
                                 <input type="text" name="name" class="form-control" value="{{ $result['name'] }}"

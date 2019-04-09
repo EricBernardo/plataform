@@ -15,7 +15,7 @@ class UserRequest extends FormRequest
     {
         return true;
     }
-    
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -26,9 +26,7 @@ class UserRequest extends FormRequest
         return [
             'name'       => 'required',
             'email'      => 'required|email',
-            'password'   => 'confirmed',
-            'client_id'  => 'required_if:role,client',
-            'company_id' => 'required'
+            'password'   => 'confirmed'
         ];
     }
 }

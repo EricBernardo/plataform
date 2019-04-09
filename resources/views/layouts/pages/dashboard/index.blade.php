@@ -67,7 +67,7 @@
                 <div class="col-lg-4 col-xs-12">
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                            <h3>{{ $data['new_clients'] }}</h3>
+                            <h3>12</h3>
                             <strong>{{ __('messages.new_clients') }}</strong>
                         </div>
                         <div class="icon">
@@ -79,7 +79,7 @@
                 <div class="col-lg-4 col-xs-12">
                     <div class="small-box bg-gray">
                         <div class="inner">
-                            <h3>{{ $data['orders'] }}</h3>
+                            <h3>12</h3>
                             <strong>{{ __('messages.orders') }}</strong>
                         </div>
                         <div class="icon">

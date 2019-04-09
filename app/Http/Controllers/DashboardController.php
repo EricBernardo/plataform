@@ -17,9 +17,9 @@ use Illuminate\Http\Request;
  */
 class DashboardController extends Controller
 {
-    
+
     private $service;
-    
+
     /**
      * Create a new controller instance.
      *
@@ -30,7 +30,7 @@ class DashboardController extends Controller
         $this->middleware('auth');
         $this->service = $service;
     }
-    
+
     /**
      * Show the application dashboard.
      *
@@ -38,7 +38,6 @@ class DashboardController extends Controller
      */
     public function index(Request $request)
     {
-        $data = $this->service->infos($request);
-        return view('layouts.pages.dashboard.index', compact('data'));
+        return view('layouts.pages.dashboard.index');
     }
 }
