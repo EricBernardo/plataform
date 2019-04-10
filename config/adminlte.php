@@ -13,7 +13,6 @@ return [
     |
     */
 
-
     'title' => 'Plataform - One For All',
 
     'title_prefix' => '',
