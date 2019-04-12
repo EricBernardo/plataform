@@ -38,5 +38,7 @@
   "users": "Users",
   "user": "User",
   "title": "Title",
-  "save": "Save"
+  "save": "Save",
+  "delete": "Delete",
+  "edit": "Edit"
 }

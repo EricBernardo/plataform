@@ -2,8 +2,8 @@
     <div>
 
         <router-link :to="{ name: 'companies.create' }">
-            <button class="btn btn-primary btn-sm">
-                Cadastrar
+            <button class="btn btn-success">
+                {{ $t('register') }}
             </button>
         </router-link>
 
@@ -11,34 +11,34 @@
             <thead>
             <tr>
                 <th style="width: 10px">#</th>
-                <th>Título</th>
+                <th>{{ $t('title') }}</th>
                 <th>-</th>
                 <th>-</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="post in laravelData.data">
-                <th scope="row">{{ post.id }}</th>
-                <td>{{ post.title }}</td>
+            <tr v-for="item in items.data">
+                <th scope="row">{{ item.id }}</th>
+                <td>{{ item.title }}</td>
                 <td>
-                    <router-link :to="{ name: 'companies.edit', params: { id: post.id } }">
-                        <button class="btn btn-primary btn-sm">
+                    <router-link :to="{ name: 'companies.edit', params: { id: item.id } }">
+                        <button class="btn btn-info btn-sm">
                             <fa icon="edit" fixed-width/>
-                            Edit
+                            {{ $t('edit') }}
                         </button>
                     </router-link>
                 </td>
                 <td>
-                    <button class="btn btn-danger btn-sm">
+                    <button class="btn btn-danger btn-sm" @click.prevent="deleteRegister(item.id)">
                         <fa icon="trash" fixed-width/>
-                        Del
+                        {{ $t('delete') }}
                     </button>
                 </td>
             </tr>
             </tbody>
         </table>
 
-        <pagination :data="laravelData" @pagination-change-page="getResults"></pagination>
+        <pagination :data="items" @pagination-change-page="getResults"></pagination>
 
     </div>
 </template>
@@ -47,13 +47,15 @@
 
     import axios from 'axios'
 
+    import swal from 'sweetalert2'
+
     const http = axios
 
     export default {
 
         data() {
             return {
-                laravelData: {},
+                items: {}
             }
         },
 
@@ -63,10 +65,54 @@
 
         methods: {
             getResults(page = 1) {
+
                 http.get('/api/company?page=' + page)
                     .then(response => {
-                        this.laravelData = response.data;
+                        this.items = response.data;
                     });
+
+            },
+            deleteRegister(id) {
+
+                let self = this;
+
+                swal({
+                    title: 'Are you sure?',
+                    text: 'You will not be able to recover this post!',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'No, keep it',
+                }).then(function (response) {
+
+                        if (response.value === true) {
+
+                            http.delete('/api/company/' + id).then(function (response) {
+
+                                self.getResults();
+
+                                swal(
+                                    'Deleted!',
+                                    'Your register has been deleted.',
+                                    'success'
+                                );
+
+                            });
+
+                        }
+
+                    }, function (dismiss) {
+
+                        if (dismiss === 'cancel') {
+                            swal(
+                                'Cancelled',
+                                'Your register is safe',
+                                'error'
+                            );
+                        }
+
+                    }
+                )
             }
         }
 
