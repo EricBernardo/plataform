@@ -1,6 +1,12 @@
 <template>
     <div>
 
+        <router-link :to="{ name: 'companies.create' }">
+            <button class="btn btn-primary btn-sm">
+                Cadastrar
+            </button>
+        </router-link>
+
         <table class="table table-striped table-hover">
             <thead>
             <tr>

@@ -41,20 +41,15 @@
             })
         }),
 
-        // computed: mapGetters({
-            // company: 'company/' + this.id
-        // }),
-
         created() {
 
-            http
-            .get(app_url+ '/api/company/show/' + this.$route.params.id)
-            .then(response => {
-                this.company = response.data;
-                  this.form.keys().forEach(key => {
-                    this.form[key] = this.company[key];
+            http.get(app_url + '/api/company/' + this.$route.params.id)
+                .then(response => {
+                    this.company = response.data;
+                    this.form.keys().forEach(key => {
+                        this.form[key] = this.company[key];
+                    });
                 });
-            });
 
         },
 

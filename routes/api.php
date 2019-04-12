@@ -30,11 +30,10 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::group(['middleware' => ['role:root']], function () {
 
         Route::get('company', 'CompanyController@index')->name('company.index');
-        Route::get('company/create', 'CompanyController@create')->name('company.create');
-        Route::get('company/show/{id}', 'CompanyController@show')->name('company.show');
-        Route::put('company/update/{id}', 'CompanyController@update')->name('company.update');;
-        Route::post('company/store', 'CompanyController@store')->name('company.store');;
-        Route::delete('company/delete/{id}', 'CompanyController@destroy')->name('company.destroy');
+        Route::get('company/{id}', 'CompanyController@show')->name('company.show');
+        Route::post('company', 'CompanyController@store')->name('company.store');
+        Route::put('company/{id}', 'CompanyController@update')->name('company.update');
+        Route::delete('company/{id}', 'CompanyController@destroy')->name('company.destroy');
 
     });
 
