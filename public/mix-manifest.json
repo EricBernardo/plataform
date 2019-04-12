@@ -1,9 +1,7 @@
 {
+    "/js/lang-zh-CN.05f1eac96ac4b1a58972.js": "/js/lang-zh-CN.05f1eac96ac4b1a58972.js",
+    "/js/lang-es.7f2b93b9c03c518567a9.js": "/js/lang-es.7f2b93b9c03c518567a9.js",
+    "/js/lang-en.5f48c223ad462beeb909.js": "/js/lang-en.5f48c223ad462beeb909.js",
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/js/client.js": "/js/client.js",
-    "/js/dashboard.js": "/js/dashboard.js",
-    "/js/order.js": "/js/order.js",
-    "/js/product.js": "/js/product.js",
-    "/js/user.js": "/js/user.js"
+    "/css/app.css": "/css/app.css"
 }

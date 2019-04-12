@@ -22,7 +22,7 @@ return [
     |
     | This value determines the "environment" your application is currently
     | running in. This may determine how you prefer to configure various
-    | services the application utilizes. Set this in your ".env" file.
+    | services your application utilizes. Set this in your ".env" file.
     |
     */
 
@@ -54,8 +54,6 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
-    'asset_url' => env('ASSET_URL', null),
-
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -67,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'America/Sao_Paulo',
+    'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +78,13 @@ return [
     |
     */
 
-    'locale' => 'pt_BR',
+    'locale' => 'en',
+
+    'locales' => [
+        'en' => 'EN',
+        'zh-CN' => '中文',
+        'es' => 'ES',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -93,20 +97,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'pt_BR',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Faker Locale
-    |--------------------------------------------------------------------------
-    |
-    | This locale will be used by the Faker PHP library when generating fake
-    | data for your database seeds. For example, this will be used to get
-    | localized telephone numbers, street address information and more.
-    |
-    */
-
-    'faker_locale' => 'en_US',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,6 +156,8 @@ return [
         /*
          * Package Service Providers...
          */
+    
+        Spatie\Permission\PermissionServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -174,10 +167,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
-        LaravelLegends\PtBrValidator\ValidatorProvider::class,
-        Canducci\Cep\Providers\CepServiceProvider::class,
 
     ],
 
@@ -227,7 +216,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Cep'          => Canducci\Cep\Facade\Cep::class,
 
     ],
 
