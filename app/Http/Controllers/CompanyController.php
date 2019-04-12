@@ -11,9 +11,9 @@ use App\Services\CompanyServices;
  */
 class CompanyController extends Controller
 {
-    
+
     private $services;
-    
+
     /**
      * Create a new controller instance.
      *
@@ -24,35 +24,35 @@ class CompanyController extends Controller
         $this->middleware('auth');
         $this->services = $services;
     }
-    
+
     public function index()
     {
         return $this->services->paginate();
     }
-    
+
     public function all()
     {
         return $this->services->all();
     }
-    
+
     public function store(CompanyRequest $request)
     {
         return $this->services->create($request);
     }
-    
-    public function edit($id)
+
+    public function show($id)
     {
         return $this->services->show($id);
     }
-    
+
     public function update(CompanyRequest $request, $id)
     {
         return $this->services->update($request, $id);
     }
-    
+
     public function destroy($id)
     {
         return $this->services->delete($id);
     }
-    
+
 }

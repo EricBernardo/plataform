@@ -27,6 +27,7 @@ $polyfills = [
   <title>{{ config('app.name') }}</title>
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+  <script type="text/javascript">var app_url = {!! json_encode(url('/')) !!};</script>
 </head>
 <body>
   <div id="app"></div>

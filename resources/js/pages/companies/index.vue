@@ -15,10 +15,12 @@
                 <th scope="row">{{ post.id }}</th>
                 <td>{{ post.title }}</td>
                 <td>
-                    <button class="btn btn-primary btn-sm">
-                        <fa icon="edit" fixed-width/>
-                        Edit
-                    </button>
+                    <router-link :to="{ name: 'companies.edit', params: { id: post.id } }">
+                        <button class="btn btn-primary btn-sm">
+                            <fa icon="edit" fixed-width/>
+                            Edit
+                        </button>
+                    </router-link>
                 </td>
                 <td>
                     <button class="btn btn-danger btn-sm">

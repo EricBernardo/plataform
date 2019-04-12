@@ -7,6 +7,7 @@ const NotFound = () => import('~/pages/errors/404').then(m => m.default || m)
 
 const Home = () => import('~/pages/home').then(m => m.default || m)
 const Companies = () => import('~/pages/companies').then(m => m.default || m)
+const CompaniesEdit = () => import('~/pages/companies/edit').then(m => m.default || m)
 const Settings = () => import('~/pages/settings/index').then(m => m.default || m)
 const SettingsProfile = () => import('~/pages/settings/profile').then(m => m.default || m)
 const SettingsPassword = () => import('~/pages/settings/password').then(m => m.default || m)
@@ -21,6 +22,7 @@ export default [
 
     {path: '/home', name: 'home', component: Home},
     {path: '/companies', name: 'companies', component: Companies},
+    {path: '/companies/edit/:id', name: 'companies.edit', component: CompaniesEdit},
     {
         path: '/settings',
         component: Settings,
